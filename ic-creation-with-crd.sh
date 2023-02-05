@@ -24,11 +24,11 @@ echo What ready-made example would you like to deploy? Paste the exact name:
 
 read path
 echo You chose: $path
-echo Now applying all the yaml resources under ./kubernetes-ingress/examples/custom-resources/$path
+echo Now applying all the yaml resources under ../kubernetes-ingress/examples/custom-resources/$path
 #echo Your second car was: $car2
 #echo Your third car was: $car3
 
-for i in ./kubernetes-ingress/examples/custom-resources/$path/*.yaml
+for i in ../kubernetes-ingress/examples/custom-resources/$path/*.yaml
 do kubectl apply -f $i
 done
 
@@ -39,7 +39,7 @@ read -p "Are you done with the test? Do you wish to delete the resources created
 
 case $yn in
         yes ) echo ok, we will proceed;
-                for j in ./kubernetes-ingress/examples/custom-resources/$path/*.yaml;
+                for j in ../kubernetes-ingress/examples/custom-resources/$path/*.yaml;
                         do kubectl delete -f $j;
                         helm uninstall mbs-ingress -n default 2>/dev/null;
                         done;
