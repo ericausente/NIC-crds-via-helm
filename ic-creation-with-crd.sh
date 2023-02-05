@@ -8,8 +8,6 @@
 
 #removal of cluster as externaltrafficpolicy type and adding the replica as 2 and daemonset kind
 
-kubectl delete secret regrcred
-kubectl delete ingressclass nginx
 helm uninstall my-ingress
 helm install my-ingress nginx-stable/nginx-ingress --set controller.image.repository=private-registry.nginx.com/nginx-ic-nap/nginx-plus-ingress --set controller.nginxplus=true --set controller.appprotect.enable=true --set controller.image.tag=2.3.0 --set controller.serviceAccount.imagePullSecretName=regcred --set controller.service.type=NodePort --set controller.service.httpsPort.nodePort=32137 --set controller.replicaCount=1 --set controller.kind=daemonset --set prometheus.create=true --set controller.readyStatus.initialDelaySeconds=30
 
