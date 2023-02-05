@@ -1,6 +1,11 @@
 # kubernetes-ingress-crds
 Script that will run ingress controller along with the CRD Examples
 
+Clean the conflicting resources: 
+```
+kubectl delete ingressclass nginx
+kubectl delete secret regcred
+```
 
 # Helm Installation (If you have not installed yet)
 from: https://helm.sh/docs/intro/install/
@@ -53,5 +58,21 @@ Confirm the details of the created secret by running:
 ```
 kubectl get secret regcred --output=yaml
 ```
+
+Go back to your home directory: 
+```
+cd ~
+```
+
+Clone the below repository and run the script
+```
+git clone https://github.com/ericausente/kubernetes-ingress-crds.git
+cd kubernetes-ingress-crds
+chmod +x ic-creation-with-crd.sh
+./ic-creation-with-crd.sh
+```
+
+
+
 
 
