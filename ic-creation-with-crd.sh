@@ -36,7 +36,7 @@ done
 
 while true; do
 
-read -p "Are you done with the test? Do you wish to delete the resources created? (yes/no) " yn
+read -p "Note that HTTPS is listening on NodePort 32137. If you are done with the test, do you wish to delete the resources created? (yes/no) " yn
 
 case $yn in
         yes ) echo ok, we will proceed;
