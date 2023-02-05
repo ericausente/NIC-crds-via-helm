@@ -13,7 +13,7 @@ helm install my-ingress nginx-stable/nginx-ingress --set controller.image.reposi
 echo
 echo
 echo "Here are the available resources":
-ls ./kubernetes-ingress/examples/custom-resources/
+ls ../kubernetes-ingress/examples/custom-resources/
 
 echo
 echo "===================="
