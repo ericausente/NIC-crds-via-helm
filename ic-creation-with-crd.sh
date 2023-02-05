@@ -42,7 +42,7 @@ case $yn in
         yes ) echo ok, we will proceed;
                 for j in ../kubernetes-ingress/examples/custom-resources/$path/*.yaml;
                         do kubectl delete -f $j;
-                        helm uninstall mbs-ingress -n default 2>/dev/null;
+                        helm uninstall my-ingress -n default 2>/dev/null;
                         done;
                 break;;
         no ) echo exiting...;
