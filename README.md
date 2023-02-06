@@ -1,7 +1,7 @@
 # kubernetes-ingress-crds
 Script that will run ingress controller along with the CRD Examples
 
-Clean the conflicting resources: 
+Clean the conflicting resources (if there are any): 
 ```
 kubectl delete ingressclass nginx
 kubectl delete secret regcred
