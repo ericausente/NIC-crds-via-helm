@@ -72,7 +72,7 @@ chmod +x ic-creation-with-crd.sh
 ./ic-creation-with-crd.sh
 ```
 
-## If you have chosen to deploy the "basic configuration" example, copy paste the exact sample foler name. 
+## If you have chosen to deploy the "basic configuration" example, copy paste the exact sample folder name. 
 
 It will do the following (as it will apply all the yaml files contained in that folder):
 Deploy the Cafe Application
