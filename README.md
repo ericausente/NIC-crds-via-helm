@@ -72,6 +72,52 @@ chmod +x ic-creation-with-crd.sh
 ./ic-creation-with-crd.sh
 ```
 
+## If you have chosen to deploy the "basic configuration" example, copy paste the exact sample foler name. 
+
+It will do the following (as it will apply all the yaml files contained in that folder):
+Deploy the Cafe Application
+Configure Load Balancing and TLS Termination
+Create the VirtualServer resource:
+
+## Then you can answer no to the confirmatory question. You can th open a new terminal or a client terminal that can talk to your K8s Cluster and follow the below to test: 
+
+Prerequisites
+
+    Save the public IP address of the Ingress Controller into a shell variable:
+
+    $ IC_IP=XXX.YYY.ZZZ.III
+
+    Save the HTTPS port of the Ingress Controller into a shell variable:
+
+    $ IC_HTTPS_PORT=<port number>
+
+
+Test the Configuration
+
+    Check that the configuration has been successfully applied by inspecting the events of the VirtualServer:
+
+    $ kubectl describe virtualserver cafe
+    . . .
+    Events:
+      Type    Reason          Age   From                      Message
+      ----    ------          ----  ----                      -------
+      Normal  AddedOrUpdated  7s    nginx-ingress-controller  Configuration for default/cafe was added or updated
+
+    Access the application using curl. We'll use curl's --insecure option to turn off certificate verification of our self-signed certificate and --resolve option to set the IP address and HTTPS port of the Ingress Controller to the domain name of the cafe application:
+
+    To get coffee:
+
+    $ curl --resolve cafe.example.com:$IC_HTTPS_PORT:$IC_IP https://cafe.example.com:$IC_HTTPS_PORT/coffee --insecure
+    Server address: 10.16.1.182:80
+    Server name: coffee-7dbb5795f6-tnbtq
+    ...
+
+If your prefer tea:
+
+$ curl --resolve cafe.example.com:$IC_HTTPS_PORT:$IC_IP https://cafe.example.com:$IC_HTTPS_PORT/tea --insecure
+Server address: 10.16.0.149:80
+Server name: tea-7d57856c44-zlftd
+...
 
 
 
